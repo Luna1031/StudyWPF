@@ -1,0 +1,201 @@
+﻿<Page x:Class="BikeShop.TestPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:BikeShop"
+      xmlns:bl ="clr-namespace:BusinessLogic"
+      xmlns:m="clr-namespace:BikeShop.Maths"
+      mc:Ignorable="d" 
+      Height="380" Width="800"
+      d:DesignHeight="380" d:DesignWidth="800"
+      Title="TestPage">
+    <Page.Resources>
+        <m:TwiceConverter x:Key="twiceConv"/>
+    </Page.Resources>
+    <Grid Loaded="Grid_Loaded">
+        <!--<Label>
+            <bl:Car  x:Name="car1" Speed="50.4" Color="Red"> -->
+        <!--Xaml상의있는것도 하나의 인스턴스이다-->
+        <!--
+                <bl:Car.Driver>
+                    <bl:Human Name="Ted" HasDrivingLicense="True"/> 
+                </bl:Car.Driver>
+            </bl:Car>
+        </Label>-->
+
+        <!--캔버스는 안에 들어가는것은 아무것도 제한하지 않는다-->
+        <!--<Canvas Width="50" Height="50" Background="Orange">
+            <Button Content="Hello World" Margin="10" />
+        </Canvas>-->
+
+        <!--그리드는 제한한다-->
+        <!--<Grid Width="50" Height="50" Background="Orange">
+            <Button Content="Hello World" Margin="5" />
+        </Grid>-->
+
+        <!--상속과 같은 개념으로 보면 된다-->
+        <!--<Canvas Background="Orange" Margin="30">
+            <Button Canvas.Left="10" Canvas.Top="15" Content="Button A"/>
+            <Button Canvas.Left="20" Canvas.Bottom="20" Content="Button B"/>
+            <Button Canvas.Left="666" Canvas.Top="102" Content="Button C" Height="126" Width="146"/>
+        </Canvas>-->
+
+        <!--모든 컨트롤을 순서대로 배열한다-->
+        <!--<StackPanel Background="Orange" Margin="30" Orientation="Vertical">
+            <Button Canvas.Left="10" Canvas.Top="15" Content="Button A"/>
+            <Button Canvas.Left="20" Canvas.Bottom="20" Content="Button B"/>
+            <Button Canvas.Left="666" Canvas.Top="102" Content="Button C"/>
+        </StackPanel>-->
+
+        <!--Panel을 다 채워버림-->
+        <!--<DockPanel Background="Orange" Margin="30">
+            <Button Content="Button A" DockPanel.Dock="Left"/>
+            <Button Content="Button B" DockPanel.Dock="Right"/>
+            <Button Content="Button C" DockPanel.Dock="Top"/>
+            <Button Content="Button D" DockPanel.Dock="Bottom"/>
+            <Button Content="Button E"/>
+        </DockPanel>-->
+
+        <!--<Grid Width="500" Height="100">
+            <Grid.RowDefinitions>
+                -->
+        <!--Row 추가 [i][]-->
+        <!-- 
+                <RowDefinition Height="80"/>
+                <RowDefinition />
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                -->
+        <!--Column 추가[][j] Width="*"배율을 1로 하겠다-->
+        <!--
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="2*"/>
+            </Grid.ColumnDefinitions>
+            
+            <Button Grid.Row="0" Grid.Column="0" Content="Button A" Margin="5"/>
+            <Button Grid.Row="0" Grid.Column="1" Content="Button B" Margin="5"/>
+            <Button Grid.Row="0" Grid.Column="2" Grid.RowSpan="2" Content="Button C" Margin="5"/>
+            <Button Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" Content="Button D" Margin="5"/>
+
+        </Grid>-->
+
+
+        <!--<Grid Width="320" Height="200">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition Width="20"/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            -->
+        <!--listbox사용법-->
+        <!--
+            <ListBox x:Name="LstCar" Grid.Column="0"
+                     ItemsSource="{Binding}">
+                -->
+        <!--<Label Content="Element1"/>
+                <Label Content="Element2"/>
+                <TextBlock Text="Element3"/>
+                <GroupBox Header="Element4">
+                    This is a subsentence
+                </GroupBox>-->
+        <!--
+                <ListBox.ItemTemplate>
+                    <ItemContainerTemplate>
+                        <StackPanel>
+                            <TextBlock Text="Speed :"/>
+                            <TextBox Text="{Binding Speed, StringFormat='{}{0:#,#.#}'}"/>
+                            <Slider Maximum="300" Value="{Binding Speed}"/>
+                            <TextBlock Text="색상"/>
+                            <Border Height="20">
+                                <Border.Background>
+                                    <SolidColorBrush Color="{Binding Color}"/>
+                                </Border.Background>
+                            </Border>
+                            <TextBox Text="{Binding Color}" />
+                        </StackPanel>
+                    </ItemContainerTemplate>
+                </ListBox.ItemTemplate>
+            </ListBox>
+            -->
+        <!--ComboBox사용법-->
+        <!--
+            <ComboBox  x:Name="CboCar" Height="30" Grid.Column="2" VerticalAlignment="Top"
+                       ItemsSource="{Binding}">
+                -->
+        <!--<Label Content="Element1"/>
+                <Label Content="Element2"/>
+                <TextBlock Text="Element3"/>
+                <GroupBox Header="Element4">
+                    This is a subsentence
+                </GroupBox>-->
+        <!--
+                <ComboBox.ItemTemplate>
+                    <ItemContainerTemplate>
+                        <StackPanel>
+                            
+                        </StackPanel>
+                    </ItemContainerTemplate>
+                </ComboBox.ItemTemplate>
+            </ComboBox>
+
+        </Grid>-->
+
+        <!--바인딩하기-->
+        <!--<StackPanel Margin="10">
+            <Slider x:Name="slider" Value="10" Height="20" Minimum="0" Maximum="100"/>
+            <ProgressBar x:Name="prgBar" Height="30" Value="{Binding Value, ElementName=slider}"/>
+            <TextBlock TextAlignment="Center" Text="{Binding Value, ElementName=slider, StringFormat='{}{0:#,#.#}%'}" DataContext="" />
+            
+        -->
+        <!--데이터를 연동, 변환기-->
+        <!--
+            <TextBlock Text="{Binding Driver.Name}" Height="30" TextAlignment="Center" FontSize="20"/>
+            <TextBox Text="{Binding Speed, Mode=TwoWay}" Width="100" TextAlignment="Center" VerticalAlignment="Center" FontSize="20"/>
+            <TextBlock Text="{Binding Speed, Converter={StaticResource twiceConv}}" Width="100" TextAlignment="Center" VerticalAlignment="Center" FontSize="20"/>
+        </StackPanel>-->
+
+        <!-- 버튼 템플릿 만들어보았다 -->
+        <!--<Grid Width="300" Height="200">
+            <Button Content="Click" FontSize="20" Click="Button_Click" >
+                <Button.Template>
+                    <ControlTemplate TargetType="{x:Type Button}">
+                        <Grid>
+                            <Rectangle Fill="{TemplateBinding Background}" 
+                                     StrokeThickness="0.5" Stroke="{TemplateBinding BorderBrush}" 
+                                       RadiusY="22.75" RadiusX="22.75" />
+                            <Label Content="{TemplateBinding Content}" 
+                                   FontSize="{TemplateBinding FontSize}" 
+                                   HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                        </Grid>
+                    </ControlTemplate>
+                </Button.Template>
+            </Button>
+        </Grid>-->
+        
+        <!-- Discussion에 있는 버튼 템플릿을 가져와서 Test 해보았다 -->
+       <Button Content="Button" HorizontalAlignment="Left" Margin="306,110,0,0" VerticalAlignment="Top" Width="162" Height="164">
+            <Button.Template>
+                <ControlTemplate TargetType="Button">
+                    <Grid>
+                        <Rectangle Fill="#BBFF0000" Margin="5,5,0,0" RadiusX="10" RadiusY="10"/>
+                        <Rectangle Fill="{TemplateBinding Background}" Margin="0,0,5,5" RadiusX="10" RadiusY="10"/>
+                        <Viewbox Margin="0,0,0,5">
+                            <!-- 요걸 써도 된다! <ContentPresenter />-->
+                            <Label Content="{TemplateBinding Content}" />
+                        </Viewbox>
+                    </Grid>
+                </ControlTemplate>
+            </Button.Template>
+        </Button>
+
+        <!-- 그라데이숀 버튼! -->
+        <!--<StackPanel Width="100" Margin="30">
+            <Button Style="{StaticResource niceButton}" Content="Button A" />
+            <Button Content="Button B" /> --><!-- 한 눈에 봐도 확연한 차이! --><!--
+            <Button Style="{StaticResource niceButton}" Content="Button C" />
+        </StackPanel>-->
+
+    </Grid>
+</Page>
