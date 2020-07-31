@@ -51,12 +51,14 @@ namespace ThirdCaliburnApp.ViewModels
             {
                 selectedEmployee = value;
 
-                Id = value.Id;
-                EmpName = value.EmpName;
-                Salary = value.Salary;
-                DeptName = value.DeptName;
-                Destination = value.Destination;
-                
+                if (value != null)
+                {
+                    Id = value.Id;
+                    EmpName = value.EmpName;
+                    Salary = value.Salary;
+                    DeptName = value.DeptName;
+                    Destination = value.Destination;
+                }
                 NotifyOfPropertyChange(() => SelectedEmployee);
                 NotifyOfPropertyChange(() => CanSaveEmployee);
 
@@ -165,43 +167,51 @@ namespace ThirdCaliburnApp.ViewModels
         public void SaveEmployee()
         {
             int resultRow = 0;
-            using (MySqlConnection conn = new MySqlConnection(Commons.CONNSTRING))
+            try
             {
-                conn.Open();
-                MySqlCommand cmd = new MySqlCommand();
-                cmd.Connection = conn;
-                if (Id == 0)//Insert
-                    cmd.CommandText = Commons.INSERT_EMPLYEE;
-                else
-                    cmd.CommandText = Commons.UPDATE_EMPLYEE;
-
-                
-                MySqlParameter paramEmpName = new MySqlParameter("@EmpName", MySqlDbType.VarChar, 45);
-                paramEmpName.Value = EmpName;
-                cmd.Parameters.Add(paramEmpName);
-
-                MySqlParameter paramsalary = new MySqlParameter("@salary", MySqlDbType.Decimal);
-                paramsalary.Value = Salary;
-                cmd.Parameters.Add(paramsalary);
-
-                MySqlParameter paramDeptName = new MySqlParameter("@DeptName", MySqlDbType.VarChar, 45);
-                paramDeptName.Value = DeptName;
-                cmd.Parameters.Add(paramDeptName);
-
-                MySqlParameter paramDestination = new MySqlParameter("@Destination", MySqlDbType.VarChar, 45);
-                paramDestination.Value = Destination;
-                cmd.Parameters.Add(paramDestination);
-
-                if (Id != 0)
+                using (MySqlConnection conn = new MySqlConnection(Commons.CONNSTRING))
                 {
-                    MySqlParameter paramId = new MySqlParameter("@id", MySqlDbType.Int32);
-                    paramId.Value = Id;
-                    cmd.Parameters.Add(paramId);
+                    conn.Open();
+                    MySqlCommand cmd = new MySqlCommand();
+                    cmd.Connection = conn;
+                    if (Id == 0)//Insert
+                        cmd.CommandText = Commons.INSERT_EMPLYEE;
+                    else
+                        cmd.CommandText = Commons.UPDATE_EMPLYEE;
+
+
+                    MySqlParameter paramEmpName = new MySqlParameter("@EmpName", MySqlDbType.VarChar, 45);
+                    paramEmpName.Value = EmpName;
+                    cmd.Parameters.Add(paramEmpName);
+
+                    MySqlParameter paramsalary = new MySqlParameter("@salary", MySqlDbType.Decimal);
+                    paramsalary.Value = Salary;
+                    cmd.Parameters.Add(paramsalary);
+
+                    MySqlParameter paramDeptName = new MySqlParameter("@DeptName", MySqlDbType.VarChar, 45);
+                    paramDeptName.Value = DeptName;
+                    cmd.Parameters.Add(paramDeptName);
+
+                    MySqlParameter paramDestination = new MySqlParameter("@Destination", MySqlDbType.VarChar, 45);
+                    paramDestination.Value = Destination;
+                    cmd.Parameters.Add(paramDestination);
+
+                    if (Id != 0)
+                    {
+                        MySqlParameter paramId = new MySqlParameter("@id", MySqlDbType.Int32);
+                        paramId.Value = Id;
+                        cmd.Parameters.Add(paramId);
+                    }
+
+                    resultRow = cmd.ExecuteNonQuery();
                 }
-
-                resultRow = cmd.ExecuteNonQuery();
             }
-
+            catch(Exception ex)
+            {
+                DialogViewModel dialogVM = new DialogViewModel();
+                dialogVM.DisplayName = $"{ex.Message}";
+                bool? success = windowManager.ShowDialog(dialogVM);
+            }
             if (resultRow > 0)
             {
                 // MessageBox.Show("저장");

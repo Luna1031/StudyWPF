@@ -99,23 +99,24 @@
             <TextBox x:Name="EmpName" Grid.Row="1" Grid.Column="1" FontSize="20"  
                      materialDesign:HintAssist.Hint="EmpName (직원명)" 
                      Style="{StaticResource MaterialDesignFloatingHintTextBox}" 
-                     VerticalAlignment="Top"
-                     Margin="2"/>
+                     VerticalAlignment="Top" Margin="2"
+                     MaxLength="45" />
             <TextBox x:Name="Salary" Grid.Row="2" Grid.Column="1" FontSize="20" 
                      materialDesign:HintAssist.Hint="Salary (급여)" 
-                     Style="{StaticResource MaterialDesignFloatingHintTextBox}" 
-                     VerticalAlignment="Top"
-                     Margin="2"/>
+                     Style="{StaticResource MaterialDesignFloatingHintTextBox}"
+                     VerticalAlignment="Top" Margin="2" 
+                     MaxLength="10" 
+                     PreviewTextInput="Salary_PreviewTextInput"/>
             <TextBox x:Name="DeptName" Grid.Row="3" Grid.Column="1" FontSize="20" 
                      materialDesign:HintAssist.Hint="Dept Name (직장명)" 
                      Style="{StaticResource MaterialDesignFloatingHintTextBox}" 
-                     VerticalAlignment="Top"
-                     Margin="2"/>
+                     VerticalAlignment="Top" Margin="2"
+                     MaxLength="45" />
             <TextBox x:Name="Destination" Grid.Row="4" Grid.Column="1" FontSize="20"  
                      materialDesign:HintAssist.Hint="Destination (주소)" 
                      Style="{StaticResource MaterialDesignFloatingHintTextBox}" 
-                     VerticalAlignment="Top"
-                     Margin="2"/>
+                     VerticalAlignment="Top" Margin="2"
+                     MaxLength="45" />
             
             <StackPanel Grid.Row="5" Grid.Column="0" Grid.ColumnSpan="2"
                         Orientation="Horizontal"

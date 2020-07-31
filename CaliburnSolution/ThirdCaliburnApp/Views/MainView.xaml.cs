@@ -13,6 +13,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using ThirdCaliburnApp.Helpers;
 
 namespace ThirdCaliburnApp.Views
 {
@@ -29,6 +30,11 @@ namespace ThirdCaliburnApp.Views
         private void GetEmployees_Click(object sender, RoutedEventArgs e)
         {
 
+        }
+
+        private void Salary_PreviewTextInput(object sender, TextCompositionEventArgs e)
+        {
+            e.Handled = !Commons.IsNumeric(e.Text);
         }
     }
 }
