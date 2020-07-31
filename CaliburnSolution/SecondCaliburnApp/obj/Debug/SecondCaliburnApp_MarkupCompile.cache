@@ -10,11 +10,11 @@ none
 false
 DEBUG;TRACE
 D:\PKNU2020\StudyWPF\CaliburnSolution\SecondCaliburnApp\App.xaml
-2901202249
+4-640128635
 
-8-1836805444
-121-925762210
-MainWindow.xaml;Views\ShellView.xaml;
+14-1704935776
+1421291627283
+MainWindow.xaml;Views\FirstChildView.xaml;Views\SecondChildView.xaml;Views\ShellView.xaml;
 
 False
 
