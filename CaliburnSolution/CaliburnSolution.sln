@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MvvmApp", "..\MvvmApp\MvvmA
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SecondCaliburnApp", "SecondCaliburnApp\SecondCaliburnApp.csproj", "{F461335D-F52E-4F56-972E-D3B9BCBB0012}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ThirdCaliburnApp", "ThirdCaliburnApp\ThirdCaliburnApp.csproj", "{E4DE4445-A65D-4710-9069-2BF46B32B695}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{F461335D-F52E-4F56-972E-D3B9BCBB0012}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F461335D-F52E-4F56-972E-D3B9BCBB0012}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F461335D-F52E-4F56-972E-D3B9BCBB0012}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E4DE4445-A65D-4710-9069-2BF46B32B695}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E4DE4445-A65D-4710-9069-2BF46B32B695}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E4DE4445-A65D-4710-9069-2BF46B32B695}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E4DE4445-A65D-4710-9069-2BF46B32B695}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

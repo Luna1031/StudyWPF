@@ -25,7 +25,7 @@
         <GroupBox Header="포토레지스터" HorizontalAlignment="Left" Height="88" Margin="10,80,0,0" VerticalAlignment="Top" Width="457"/>
         <GroupBox Header="포트" HorizontalAlignment="Left" Height="190" Margin="471,48,0,0" VerticalAlignment="Top" Width="211">
         </GroupBox>
-        <TextBox HorizontalAlignment="Left" Height="23" Margin="346,47,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" TextChanged="TextBox_TextChanged"/>
+        <TextBox HorizontalAlignment="Left" Height="23" Margin="346,47,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
         <TextBox HorizontalAlignment="Left" Height="70" Margin="10,168,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="456"/>
         <ProgressBar HorizontalAlignment="Left" Height="32" Margin="15,100,0,0" VerticalAlignment="Top" Width="446"/>
         <ComboBox HorizontalAlignment="Left" Margin="477,71,0,0" VerticalAlignment="Top" Width="200" Height="25"/>
