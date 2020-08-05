@@ -1,38 +1,56 @@
-﻿<Window x:Class="WpfArduinoApp.Views.ShellView"
+﻿<mah:MetroWindow x:Class="WpfArduinoApp.Views.ShellView"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:lvc="clr-namespace:LiveCharts.Wpf;assembly=LiveCharts.Wpf"
+        xmlns:mah="http://metro.mahapps.com/winfx/xaml/controls"
+        xmlns:iconPacks="http://metro.mahapps.com/winfx/xaml/iconpacks"
         xmlns:local="clr-namespace:WpfArduinoApp.Views"
         mc:Ignorable="d"
         Title="Arduino PhotoRegister" Height="600" Width="700">
     <Grid>
         <Menu Grid.Row="0" Margin="10,8,10,528">
             <MenuItem Header="파일">
-                <MenuItem Header="열기" />
-                <MenuItem Header="저장" />
-                <MenuItem Header="종료" />
+                <MenuItem Header="열기">
+                    <MenuItem.Icon>
+                        <iconPacks:PackIconIonicons Kind="FolderOpeniOS" Foreground="Green" />
+                    </MenuItem.Icon>
+                </MenuItem>
+                <MenuItem Header="저장">
+                    <MenuItem.Icon>
+                        <iconPacks:PackIconBoxIcons Kind="SolidSave" Foreground="Green" />
+                    </MenuItem.Icon>
+                </MenuItem>
+                <Separator />
+                <MenuItem x:Name="MenuSubItemExit" Header="종료" Click="MenuSubItemExit_Click">
+                    <MenuItem.Icon>
+                        <iconPacks:PackIconBoxIcons Kind="SolidExit" Foreground="Green" />
+                    </MenuItem.Icon>
+                </MenuItem>
             </MenuItem>
             <MenuItem Header="시뮬레이션">
-                <MenuItem Header="시작" />
-                <MenuItem Header="중지" />
+                <MenuItem x:Name="MenuSubItemStart" Header="시작" Click="MenuSubItemStart_Click" />
+                <MenuItem x:Name="MenuSubItemStop" Header="중지" Click="MenuSubItemStop_Click" />
             </MenuItem>
-            <MenuItem Header="시뮬레이션">
-                <MenuItem Header="정보" />
+            <MenuItem Header="도움말">
+                <MenuItem x:Name="MenuSubItemInfo" Header="정보" Click="MenuSubItemInfo_Click" />
             </MenuItem>
         </Menu>
-        <Label Content="연결 시간 :" HorizontalAlignment="Left" Margin="11,45,0,0" VerticalAlignment="Top"/>
-        <GroupBox Header="포토레지스터" HorizontalAlignment="Left" Height="88" Margin="10,80,0,0" VerticalAlignment="Top" Width="457"/>
-        <GroupBox Header="포트" HorizontalAlignment="Left" Height="190" Margin="471,48,0,0" VerticalAlignment="Top" Width="211">
-        </GroupBox>
-        <TextBox HorizontalAlignment="Left" Height="23" Margin="346,47,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
-        <TextBox HorizontalAlignment="Left" Height="70" Margin="10,168,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="456"/>
-        <ProgressBar HorizontalAlignment="Left" Height="32" Margin="15,100,0,0" VerticalAlignment="Top" Width="446"/>
-        <ComboBox HorizontalAlignment="Left" Margin="477,71,0,0" VerticalAlignment="Top" Width="200" Height="25"/>
-        <Button Content="CONNECT" HorizontalAlignment="Left" Margin="477,101,0,0" VerticalAlignment="Top" Width="200" Height="40"/>
-        <Button Content="DISCONNECT" HorizontalAlignment="Left" Margin="477,146,0,0" VerticalAlignment="Top" Width="200" Height="40"/>
-        <Button Content="PORT" HorizontalAlignment="Left" Margin="477,191,0,0" VerticalAlignment="Top" Width="200" Height="40"/>
-        <Button Content="VIEW ALL" HorizontalAlignment="Left" Margin="181,503,0,0" VerticalAlignment="Top" Width="150" Height="40"/>
-        <Button Content="ZOOM" HorizontalAlignment="Left" Margin="356,503,0,0" VerticalAlignment="Top" Width="150" Height="40"/>
+        <Label Name="LblConnectionTime" Content="연결 시간 :" HorizontalAlignment="Left" Margin="11,45,0,0" VerticalAlignment="Top"/>
+        <GroupBox Header="포토레지스터" HorizontalAlignment="Left" Height="110" Margin="10,84,0,0" VerticalAlignment="Top" Width="457"/>
+        <GroupBox Header="포트" HorizontalAlignment="Left" Height="232" Margin="471,48,0,0" VerticalAlignment="Top" Width="211" />
+        <TextBox Name="TxtSensorCount" HorizontalAlignment="Left" Height="23" Margin="346,47,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" />
+        <TextBox Name="RtbLog" Style="{StaticResource ConsoleTextBox}" HorizontalAlignment="Left" Height="81" Margin="10,199,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="456" IsReadOnly="True"/>
+        <ProgressBar Name="PgbPhotoRegistor" HorizontalAlignment="Left" Height="32" Margin="15,120,0,0" VerticalAlignment="Top" Width="446"/>
+        <TextBlock Name="TxbPhotoRegistor" HorizontalAlignment="Left" Margin="204,165,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="76"/>
+        <ComboBox x:Name="CboSerialPort" HorizontalAlignment="Left" Margin="477,78,0,0" VerticalAlignment="Top" Width="200" Height="25" SelectionChanged="CboSerialPort_SelectionChanged"/>
+        <Button x:Name="BtnConnect" Content="CONNECT" HorizontalAlignment="Left" Margin="477,109,0,0" VerticalAlignment="Top" Width="200" Height="40" Click="BtnConnect_Click"/>
+        <Button x:Name="BtnDisconnect" Content="DISCONNECT" HorizontalAlignment="Left" Margin="477,154,0,0" VerticalAlignment="Top" Width="200" Height="40" Click="BtnDisconnect_Click"/>
+        <Button x:Name="BtnPortValue" Content="PORT" HorizontalAlignment="Left" Margin="477,199,0,0" VerticalAlignment="Top" Width="200" Height="75"/>
+        <Button x:Name="BtnViewAll" Content="VIEW ALL" HorizontalAlignment="Left" Margin="181,503,0,0" VerticalAlignment="Top" Width="150" Height="40" Click="BtnViewAll_Click"/>
+        <Button x:Name="BtnZoom" Content="ZOOM" HorizontalAlignment="Left" Margin="356,503,0,0" VerticalAlignment="Top" Width="150" Height="40" Click="BtnZoom_Click"/>
+        <lvc:CartesianChart x:Name="ChtPhoto" Series="{Binding LineValues}" Margin="65,294,65,90" RenderTransformOrigin="0.5,0.5">
+        </lvc:CartesianChart>
     </Grid>
-</Window>
+</mah:MetroWindow>

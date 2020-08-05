@@ -1,0 +1,15 @@
+D:\PKNU2020\StudyWPF\ChartSolution\WpfBasicApp\bin\Debug\WpfBasicApp.exe.config
+D:\PKNU2020\StudyWPF\ChartSolution\WpfBasicApp\bin\Debug\WpfBasicApp.exe
+D:\PKNU2020\StudyWPF\ChartSolution\WpfBasicApp\bin\Debug\WpfBasicApp.pdb
+D:\PKNU2020\StudyWPF\ChartSolution\WpfBasicApp\obj\Debug\WpfBasicApp.csprojAssemblyReference.cache
+D:\PKNU2020\StudyWPF\ChartSolution\WpfBasicApp\obj\Debug\MainWindow.g.cs
+D:\PKNU2020\StudyWPF\ChartSolution\WpfBasicApp\obj\Debug\App.g.cs
+D:\PKNU2020\StudyWPF\ChartSolution\WpfBasicApp\obj\Debug\WpfBasicApp_MarkupCompile.cache
+D:\PKNU2020\StudyWPF\ChartSolution\WpfBasicApp\obj\Debug\WpfBasicApp_MarkupCompile.lref
+D:\PKNU2020\StudyWPF\ChartSolution\WpfBasicApp\obj\Debug\MainWindow.baml
+D:\PKNU2020\StudyWPF\ChartSolution\WpfBasicApp\obj\Debug\WpfBasicApp.g.resources
+D:\PKNU2020\StudyWPF\ChartSolution\WpfBasicApp\obj\Debug\WpfBasicApp.Properties.Resources.resources
+D:\PKNU2020\StudyWPF\ChartSolution\WpfBasicApp\obj\Debug\WpfBasicApp.csproj.GenerateResource.cache
+D:\PKNU2020\StudyWPF\ChartSolution\WpfBasicApp\obj\Debug\WpfBasicApp.csproj.CoreCompileInputs.cache
+D:\PKNU2020\StudyWPF\ChartSolution\WpfBasicApp\obj\Debug\WpfBasicApp.exe
+D:\PKNU2020\StudyWPF\ChartSolution\WpfBasicApp\obj\Debug\WpfBasicApp.pdb

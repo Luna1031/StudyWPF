@@ -1,0 +1,25 @@
+﻿<Window
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfArduinoApp.Views"
+        xmlns:mah="http://metro.mahapps.com/winfx/xaml/controls" x:Class="WpfArduinoApp.Views.HelpView"
+        mc:Ignorable="d"
+        Title="HelpView" Height="400" Width="700">
+    <Grid>
+        
+        <Image HorizontalAlignment="Left" Height="230" Margin="10,72,0,67" VerticalAlignment="Center" Width="226" 
+               Source="images.png" RenderTransformOrigin="0.587,0.543" />
+        <Label x:Name="labelProductName"
+               Content="" HorizontalAlignment="Left" Margin="252,10,0,0" VerticalAlignment="Top" Width="385"/>
+        <Label x:Name="labelVersion" 
+               Content="" HorizontalAlignment="Left" Margin="252,41,0,0" VerticalAlignment="Top" Width="385" ClipToBounds="True"/>
+        <Label x:Name="labelCopyright" 
+               Content="" HorizontalAlignment="Left"
+               Margin="252,72,0,0" VerticalAlignment="Top" Width="385"/>
+        <Label x:Name="labelCompanyName" Content=""  Margin="252,103,55,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="textBoxDescription" HorizontalAlignment="Left" Height="185" Margin="241,174,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="441"/>
+
+    </Grid>
+</Window>

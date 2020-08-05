@@ -7,12 +7,12 @@ using System.Windows;
 // 어셈블리에 대한 일반 정보는 다음 특성 집합을 통해 
 // 제어됩니다. 어셈블리와 관련된 정보를 수정하려면
 // 이러한 특성 값을 변경하세요.
-[assembly: AssemblyTitle("WpfArduinoApp")]
-[assembly: AssemblyDescription("")]
+[assembly: AssemblyTitle("조도센서 모니터링 앱")]
+[assembly: AssemblyDescription("이 프로그램은 아두이노 조도센서를 사용하여 모니터링하고 그 정보를 MySQL DB에 저장하는 프로그램입니다.")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("")]
+[assembly: AssemblyCompany("PKNU")]
 [assembly: AssemblyProduct("WpfArduinoApp")]
-[assembly: AssemblyCopyright("Copyright ©  2020")]
+[assembly: AssemblyCopyright("Copyright © PKNU 2020")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 
