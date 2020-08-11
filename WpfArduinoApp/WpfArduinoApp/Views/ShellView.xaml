@@ -48,9 +48,7 @@
         <Button x:Name="BtnConnect" Content="CONNECT" HorizontalAlignment="Left" Margin="477,109,0,0" VerticalAlignment="Top" Width="200" Height="40" Click="BtnConnect_Click"/>
         <Button x:Name="BtnDisconnect" Content="DISCONNECT" HorizontalAlignment="Left" Margin="477,154,0,0" VerticalAlignment="Top" Width="200" Height="40" Click="BtnDisconnect_Click"/>
         <Button x:Name="BtnPortValue" Content="PORT" HorizontalAlignment="Left" Margin="477,199,0,0" VerticalAlignment="Top" Width="200" Height="75"/>
-        <Button x:Name="BtnViewAll" Content="VIEW ALL" HorizontalAlignment="Left" Margin="181,503,0,0" VerticalAlignment="Top" Width="150" Height="40" Click="BtnViewAll_Click"/>
-        <Button x:Name="BtnZoom" Content="ZOOM" HorizontalAlignment="Left" Margin="356,503,0,0" VerticalAlignment="Top" Width="150" Height="40" Click="BtnZoom_Click"/>
-        <lvc:CartesianChart x:Name="ChtPhoto" Series="{Binding LineValues}" Margin="65,294,65,90" RenderTransformOrigin="0.5,0.5">
+        <lvc:CartesianChart x:Name="ChtPhoto" Series="{Binding LineValues}" Margin="65,329,65,55" RenderTransformOrigin="0.5,0.5">
         </lvc:CartesianChart>
     </Grid>
 </mah:MetroWindow>

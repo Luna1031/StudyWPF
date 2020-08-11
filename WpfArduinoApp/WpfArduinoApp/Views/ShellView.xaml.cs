@@ -1,19 +1,18 @@
-﻿using MahApps.Metro.Controls;
-using System;
-using System.Collections.Generic;
-using System.Windows;
-using System.Windows.Controls;
+﻿using Caliburn.Micro;
 using LiveCharts;
 using LiveCharts.Wpf;
-using System.IO.Ports;
-using WpfArduinoApp.Models;
-using System.Timers;
-using LiveCharts.Defaults;
-using Caliburn.Micro;
-using System.Dynamic;
-using System.Windows.Threading;
+using MahApps.Metro.Controls;
+using MySql.Data.MySqlClient;
+using System;
+using System.Collections.Generic;
 using System.ComponentModel;
-using System.Windows.Shapes;
+using System.Dynamic;
+using System.IO.Ports;
+using System.Timers;
+using System.Windows;
+using System.Windows.Controls;
+using System.Windows.Threading;
+using WpfArduinoApp.Models;
 
 namespace WpfArduinoApp.Views
 {
@@ -41,7 +40,6 @@ namespace WpfArduinoApp.Views
                 OnPropertyChanged("LineValues");
             }
         }
-
 
         Timer timer = new Timer();
         Random rand = new Random();
@@ -89,7 +87,7 @@ namespace WpfArduinoApp.Views
 
                 SensorData data = new SensorData(DateTime.Now, v);
                 photoDatas.Add(data);
-                // InsertDataToDB(data);
+                InsertDataToDB(data);
 
                 TxtSensorCount.Text = photoDatas.Count.ToString();
                 PgbPhotoRegistor.Value = v;
@@ -109,9 +107,6 @@ namespace WpfArduinoApp.Views
                     BtnPortValue.Content = $"{serial.PortName}\n{sVal}";
                 else
                     BtnPortValue.Content = $"{sVal}";
-
-                // ChtPhoto.Update();
-                // DataContext = this;
             }
             catch (Exception ex)
             {
@@ -119,14 +114,44 @@ namespace WpfArduinoApp.Views
             }
         }
 
+        private void InsertDataToDB(SensorData data)
+        {
+            string strQuery = "INSERT INTO sensordatatbl " +
+                " (Date, Value) " +
+                " VALUES " +
+                " (@Date, @Value) ";
+
+            using (MySqlConnection conn = new MySqlConnection(strConnString))
+            {
+                conn.Open();
+                MySqlCommand cmd = new MySqlCommand(strQuery, conn);
+                MySqlParameter paramDate = new MySqlParameter("@Date", MySqlDbType.DateTime)
+                {
+                    Value = data.Date
+                };
+                cmd.Parameters.Add(paramDate);
+                MySqlParameter paramValue = new MySqlParameter("@Value", MySqlDbType.Int32)
+                {
+                    Value = data.Value
+                };
+                cmd.Parameters.Add(paramValue);
+                cmd.ExecuteNonQuery();
+            }
+        }
+
         private void Serial_DataReceived(object sender, SerialDataReceivedEventArgs e)
         {
-
+            string sVal = serial.ReadLine();
+            this.BeginInvoke(new System.Action(delegate { DisplayValue(sVal); }));
         }
 
         private void BtnConnect_Click(object sender, RoutedEventArgs e)
         {
-            serial.Open();
+            if (IsSimulation == true)
+            {
+                serial.Open();
+            }
+   
             LblConnectionTime.Content = $"연결시간 : {DateTime.Now.ToString("yyyy-MM-dd hh:mm:ss")}";
             BtnConnect.IsEnabled = false;
             BtnDisconnect.IsEnabled = true;
@@ -134,35 +159,30 @@ namespace WpfArduinoApp.Views
 
         private void BtnDisconnect_Click(object sender, RoutedEventArgs e)
         {
-            serial.Close();
+            if (IsSimulation == false) 
+            {
+                serial.Close();
+            }
+
             LineValues.Clear();
             BtnConnect.IsEnabled = true;
             BtnDisconnect.IsEnabled = false;
         }
 
-        private void BtnViewAll_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
-
-        private void BtnZoom_Click(object sender, RoutedEventArgs e)
-        {
-        
-        }
         private void MenuSubItemExit_Click(object sender, RoutedEventArgs e)
         {
-            // Application.Exit();
             Environment.Exit(0);
         }
 
         private void MenuSubItemStart_Click(object sender, RoutedEventArgs e)
         {
             IsSimulation = true;
-            timer.Interval = 1000;
+            timer.Interval = 5000;
             timer.Elapsed += Timer_Elapsed;
             timer.Start();
+
             // serial통신 끊기
-            // DISCONNECT_Click(sender, e);
+            BtnDisconnect_Click(sender, e);
         }
 
         private void Timer_Elapsed(object sender, EventArgs e)
@@ -185,17 +205,11 @@ namespace WpfArduinoApp.Views
             BtnConnect_Click(sender, e);
         }
 
-        IWindowManager manager = new WindowManager();        
-
+        IWindowManager manager = new WindowManager();
+        HelpView helpView = new HelpView();
         private void MenuSubItemInfo_Click(object sender, RoutedEventArgs e)
         {
-            dynamic settings = new ExpandoObject();
-            //새창 크기조절
-            settings.Height = 300;
-            settings.Width = 580;
-            settings.SizeToContent = SizeToContent.Manual;
-
-            manager.ShowWindow(new HelpView(), null, settings);
+            helpView.Show();
         }
 
         public event PropertyChangedEventHandler PropertyChanged;
