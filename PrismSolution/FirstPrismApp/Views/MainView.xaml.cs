@@ -39,6 +39,7 @@ namespace FirstPrismApp.Views
         {
             var view = _container.Resolve<SubView>();
             var region = _regionManager.Regions["ContentRegion"];
+            region.Add(view);
         }
     }
 }
