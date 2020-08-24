@@ -6,15 +6,16 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:prism="http://prismlibrary.com/"
     mc:Ignorable="d"
-    Title="MainWindow" Height="450" Width="800"
+    prism:ViewModelLocator.AutoWireViewModel="True"
+    Title="{Binding DisplayName}" Height="450" Width="800"
     Icon="prism-logo.ico"
-    WindowStartupLocation="CenterScreen">
+    WindowStartupLocation="CenterScreen" Loaded="Window_Loaded">
     <DockPanel>
-        <StackPanel Orientation="Horizontal" DockPanel.Dock="Top">
-            <Button  Content="ViewInjection" FontSize="15" Click="Button_Click" />
-            <Button  Content="Deactiavte ViewA" FontSize="15" Click="Button_Click" />
-            <Button  Content="Activate ViewB" FontSize="15" Click="Button_Click" />
-            <Button  Content="Deactivate ViewB" FontSize="15" Click="Button_Click" />
+        <StackPanel Orientation="Vertical" DockPanel.Dock="Top">
+            <CheckBox IsChecked="{Binding IsEnabled}" Content="CanExecute" />
+            <Button Content="DelegateCommand" Command="{Binding ExecuteCommand}" />
+
+            <TextBlock Text="{Binding UpdateText}" FontSize="30" />
         </StackPanel>
         <ContentControl prism:RegionManager.RegionName="ContentRegion" />
     </DockPanel>

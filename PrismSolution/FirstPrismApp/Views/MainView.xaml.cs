@@ -1,20 +1,6 @@
 ﻿using Prism.Ioc;
 using Prism.Regions;
-using Prism.Unity;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 
 namespace FirstPrismApp.Views
 {
@@ -26,20 +12,35 @@ namespace FirstPrismApp.Views
         IContainerExtension _container;
         IRegionManager _regionManager;
 
+        IRegion _region;
         public MainView(IContainerExtension container, IRegionManager regionManager)
         {
             InitializeComponent();
 
             // regionManager.RegisterViewWithRegion("ContentRegion", typeof(SubView));
-            _container = container;
-            _regionManager = regionManager;
+            // _container = container;
+            // _regionManager = regionManager;
+        }
+
+        private void Window_Loaded(object sender, RoutedEventArgs e)
+        {
+            // _region = _regionManager.Regions["ContentRegion"];
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            var view = _container.Resolve<SubView>();
-            var region = _regionManager.Regions["ContentRegion"];
-            region.Add(view);
+        }
+
+        private void Button_Click_1(object sender, RoutedEventArgs e)
+        {
+        }
+
+        private void Button_Click_2(object sender, RoutedEventArgs e)
+        {
+        }
+
+        private void Button_Click_3(object sender, RoutedEventArgs e)
+        {
         }
     }
 }

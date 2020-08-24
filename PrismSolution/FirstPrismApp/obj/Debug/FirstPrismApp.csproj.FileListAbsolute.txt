@@ -36,3 +36,5 @@ D:\PKNU2020\StudyWPF\PrismSolution\FirstPrismApp\obj\Debug\FirstPrismApp.exe
 D:\PKNU2020\StudyWPF\PrismSolution\FirstPrismApp\obj\Debug\FirstPrismApp.pdb
 D:\PKNU2020\StudyWPF\PrismSolution\FirstPrismApp\obj\Debug\Views\SubView.baml
 D:\PKNU2020\StudyWPF\PrismSolution\FirstPrismApp\obj\Debug\Views\SubView.g.cs
+D:\PKNU2020\StudyWPF\PrismSolution\FirstPrismApp\bin\Debug\SubModule.dll
+D:\PKNU2020\StudyWPF\PrismSolution\FirstPrismApp\bin\Debug\SubModule.pdb

@@ -89,6 +89,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="ViewModels\MainViewModel.cs" />
     <Compile Include="Views\SubView.xaml.cs">
       <DependentUpon>SubView.xaml</DependentUpon>
     </Compile>
@@ -141,10 +142,15 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Models\" />
-    <Folder Include="ViewModels\" />
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Views\prism-logo.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\SubModule\SubModule.csproj">
+      <Project>{7cc192da-8ea7-4cb0-8ea3-de3c49180c4a}</Project>
+      <Name>SubModule</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
